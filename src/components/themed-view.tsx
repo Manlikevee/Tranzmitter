@@ -48,7 +48,7 @@ export function ThemedView({
           backgroundColor,
 
           borderWidth: borderWidth || undefined,
-          borderColor: borderWidth ? borderColor : "red",
+          borderColor: borderWidth ? borderColor : "purple",
 
           borderRadius: borderRadius || 0,
         },

@@ -25,6 +25,13 @@ import {
   InstrumentSans_700Bold_Italic,
 } from "@expo-google-fonts/instrument-sans";
 
+import "react-native-gesture-handler";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import "react-native-reanimated";
+
+// import { VeeContextProvider } from '@/components/VeeContext';
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+
 export default function RootLayout() {
   const colorScheme = useColorScheme();
 
@@ -54,37 +61,48 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack
-        initialRouteName="index"
-        screenOptions={{
-          headerTitleStyle: {
-            fontFamily: "Geist_600SemiBold",
-            fontSize: 16,
-          },
-        }}
-      >
-        <Stack.Screen
-          name="index"
-          options={{
-            headerShown: false,
-          }}
-        />
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <BottomSheetModalProvider>
+        <ThemeProvider
+          value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+        >
+          <Stack
+            initialRouteName="index"
+            screenOptions={{
+              headerTitleStyle: {
+                fontFamily: "Geist_600SemiBold",
+                fontSize: 16,
+              },
+            }}
+          >
+            <Stack.Screen
+              name="index"
+              options={{
+                headerShown: false,
+              }}
+            />
 
-        <Stack.Screen
-          name="(home)"
-          options={{
-            headerShown: false,
-          }}
-        />
-
-        <Stack.Screen
-          name="(auth)"
-          options={{
-            headerShown: false,
-          }}
-        />
-      </Stack>
-    </ThemeProvider>
+            <Stack.Screen
+              name="(home)"
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="(alerts)"
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="(auth)"
+              options={{
+                headerShown: false,
+              }}
+            />
+          </Stack>
+        </ThemeProvider>
+      </BottomSheetModalProvider>
+    </GestureHandlerRootView>
   );
 }

@@ -46,6 +46,7 @@ const Login = () => {
       />
 
       <InputComponent
+        borderRadius={10}
         borderWidth={0.8}
         bgLightColor="#AAAAAA14"
         bgDarkColor="#7676802E"
@@ -56,7 +57,6 @@ const Login = () => {
         inputState={password}
         setInputState={setPassword}
         inputType="password"
-        borderRadius={10}
       />
 
       <Link
