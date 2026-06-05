@@ -35,6 +35,13 @@
             "imageWidth": 76
           }
         }
+      ],
+      [
+        "@stripe/stripe-react-native",
+        {
+          "merchantIdentifier": "merchant.com.veetech.Tranzmitter",
+          "enableGooglePay": true
+        }
       ]
     ],
     "experiments": {

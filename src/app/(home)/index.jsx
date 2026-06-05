@@ -4,8 +4,7 @@ import ServiceCard from "@/components/ui/ServiceCard";
 import { WebBadge } from "@/components/web-badge";
 import { MaxContentWidth } from "@/constants/theme";
 import { useState } from "react";
-import { FlatList, Platform, StyleSheet, View } from "react-native";
-import MapView from "react-native-maps";
+import { FlatList, Platform, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const services = [
@@ -77,17 +76,6 @@ export default function HomeScreen() {
           )}
         />
 
-        <View style={styles.container}>
-          <MapView
-            initialRegion={{
-              latitude: 37.78825,
-              longitude: -122.4324,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}
-            style={styles.map}
-          />
-        </View>
         {Platform.OS === "web" && <WebBadge />}
       </SafeAreaView>
     </ThemedView>
